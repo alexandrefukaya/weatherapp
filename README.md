@@ -1,5 +1,5 @@
 # Weather APP
-NAME  : weatherapi.py
+NAME  : weatherapp.py
 AUTHOR: Alexandre Fukaya
 DATE  : Wed Dec  4 08:01:25 2019
 
@@ -21,4 +21,5 @@ DATE  : Wed Dec  4 08:01:25 2019
     - None.
 
 ## CHANGES:
-   20191204 - Configuração Inicial.
+   20191204 - Initial setup.
+   20200806 - Reconfigured for heroku deploy.
