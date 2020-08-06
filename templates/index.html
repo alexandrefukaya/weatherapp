@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon"       href="{{url_for('static', filename='favicon.ico')}}" type="image/x-icon">
+    <link rel="stylesheet" href="{{url_for('static', filename= 'css/reset.css')}}"> 
+    <link rel="stylesheet" href="{{url_for('static', filename= 'css/weather.css')}}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap"> 
+    <title>Weather API - Weather Information for you.</title>
+</head>
+<body>
+    <header>
+        <div id="logoarea">
+            <img src="{{url_for('static', filename='images/logo.png')}}" alt="Site Logo">            
+        </div>
+        <div id="textarea">
+            <h1>The Weather API</h1>
+            <h2>Weather Information for you.</h2>
+        </div>
+    </header>
+    <main>
+        <div id="weatherform">
+            <div id="searchicon">
+                <img src="{{url_for('static', filename='images/search.png')}}" alt="Search Location">
+            </div>
+            
+            <div id="formarea">
+                <form method="POST" action="/temperature">
+                    
+                    <input type="text" name="location" placeholder="City,Country">
+                    
+                    <select name = "degrees">
+                        <option value = "C" selected>Celsius</option>
+                        <option value = "F">Fahrenheit</option>
+                    </select>
+
+                    <input type = "submit" value = "Search">
+                </form>
+            </div>
+        </div>
+        {% if city != '' %}
+        <section id="weatherinfo">
+            <h2>{{city}},{{country}}</h2>
+            <h3>Today is {{info_weather}}</h3>
+
+            <ul id="temperature">
+                <li>
+                    <img src={{url_for('static', filename='images/mintemp.png')}} alt="Minimum">
+                    <p>{{temp_min}}º{{scale}}</p>
+                </li>
+                <li>
+                    <img src={{url_for('static', filename='images/temp.png')}} alt="Temperature">
+                    <p>{{temperature}}º{{scale}}</p>
+                </li>
+                <li>
+                    <img src={{url_for('static', filename='images/maxtemp.png')}} alt="Maximum">
+                    <p>{{temp_max}}º{{scale}}</p>
+                </li>
+            </ul>
+        {% endif %}
+        </section>
+    </main>
+
+</body>
+</html>
