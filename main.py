@@ -79,6 +79,11 @@ def temperature():
     except:
         return render_template('error.html',error = "Oops the country is missing...")
 
+@app.after_request
+def add_header(response):
+    response.headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains'
+    return response
+
 @app.route('/')
 def index():
     return render_template('index.html',city = '', info_weather = '', temp = '', temp_min = '', temp_max = '', scale = '')
